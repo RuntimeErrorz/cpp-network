@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "stdio.h": "c",
+        "sigset_t.h": "c",
+        "wait.h": "c",
+        "string.h": "c",
+        "types.h": "c",
+        "fcntl.h": "c"
+    }
+}

@@ -1,0 +1,33 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(gdb) 启动", //调试工程的名字，改成自己喜欢的也行
+            "type": "cppdbg",    // 调试类型，一般不用改
+            "request": "launch",
+            "program": "${workspaceFolder}/${fileBasenameNoExtension}",    // 需要调试的可执行文件，将自己可自行文件的绝对路径写进去即可，我这样写表示调试的文件为当前目录下你正在看的.c文件，是一种比较万金油的写法
+            "args": ["-c","4"], // 让程序带参数执行，后续会演示如何使用
+            "stopAtEntry": false, // 是否在main函数进来的时候就打断点
+            "cwd": "${fileDirname}", // 我也不知道是啥，没用过
+            "environment": [],    // 所需要的环境，我也没用过
+            "externalConsole": false,    // 是否要以命令行窗口的形式弹出程序，默认在终端显示
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description":  "将反汇编风格设置为 Intel",
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "LinuxThread" // 在进行调试之前会先执行的任务名称，该名称对应前面的tasks.json中的label，这里表示在调试我们的可执行文件之前先将其生成出来
+        }
+    ]
+}
